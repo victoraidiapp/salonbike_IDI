@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Intercambiadores</name>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Campus Claretinos</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Avenida de la Merced]]></description>
+			<Point>
+				<coordinates>-5.6606694,40.9825031,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Parque Zona Carrefour</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[C/ La Bañeza]]></description>
+			<Point>
+				<coordinates>-5.6657226,40.9787418,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Glorieta de Castilla y León</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Glorieta de Castilla y León]]></description>
+			<Point>
+				<coordinates>-5.6518623,40.9791367,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Federico Anaya - Los Tilos</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[C/ Los Tilos]]></description>
+			<Point>
+				<coordinates>-5.6546384,40.9761741,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>María Auxiliadora Corte Inglés 1</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Zona Corte Inglés]]></description>
+			<Point>
+				<coordinates>-5.6567815,40.9740661,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>María Auxiliadora Corte Inglés 2</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Zona Corte Inglés]]></description>
+			<Point>
+				<coordinates>-5.657267,40.9732601,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Estación de Trenes (Vialia)</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Paseo de la Estación]]></description>
+			<Point>
+				<coordinates>-5.6487939,40.9723711,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Glorieta Alto del Royo</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Plaza del Alto el Roll]]></description>
+			<Point>
+				<coordinates>-5.6474769,40.9688169,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>La Marina (Parque Los Jesuitas)</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Paseo de San Antonio]]></description>
+			<Point>
+				<coordinates>-5.6570014,40.9646305,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Prosperidad</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Calle de la Milagrosa]]></description>
+			<Point>
+				<coordinates>-5.65193,40.9609129,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Plaza de Los Bandos</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Calle Brocense]]></description>
+			<Point>
+				<coordinates>-5.6642394,40.9668301,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Plaza Poeta Iglesias</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Plaza Poeta Iglesias]]></description>
+			<Point>
+				<coordinates>-5.66401,40.9644402,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Plaza Iglesia Pizarrales</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Plaza Iglesia Pizarrales]]></description>
+			<Point>
+				<coordinates>-5.6749856,40.9758522,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Estación de Autobuses</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Avenida de Filiberto Villalobos]]></description>
+			<Point>
+				<coordinates>-5.674873,40.9705909,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Huerta Otea</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[C/ Manuel Ramos Andrade]]></description>
+			<Point>
+				<coordinates>-5.6836881,40.9676675,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Campus Unamuno</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Plaza Doctores de la Reina]]></description>
+			<Point>
+				<coordinates>-5.6768712,40.965706,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Parking Hospital</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Paseo de San Vicente]]></description>
+			<Point>
+				<coordinates>-5.6728788,40.9643824,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Tejares Caja Duero</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Avenida Juan Pablo II]]></description>
+			<Point>
+				<coordinates>-5.6943512,40.9549789,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Campus Ciencias</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Plaza de la Merced]]></description>
+			<Point>
+				<coordinates>-5.6699431,40.9604075,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Puente Romano</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Puente Romano]]></description>
+			<Point>
+				<coordinates>-5.6693141,40.9592286,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#icon-1419</styleUrl>
+			<name>Hilario Goyenechea (Barrijo San José)</name>
+			<ExtendedData>
+			</ExtendedData>
+			<description><![CDATA[Avenida de Hilario Goyenechea]]></description>
+			<Point>
+				<coordinates>-5.6621754,40.9488176,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Style id='icon-1419'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/1419-trans-bicycle.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+	</Document>
+</kml>
