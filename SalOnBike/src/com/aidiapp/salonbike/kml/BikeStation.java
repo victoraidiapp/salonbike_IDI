@@ -2,7 +2,7 @@ package com.aidiapp.salonbike.kml;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class Placemark {
+public class BikeStation {
 
 String title;
 String description;

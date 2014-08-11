@@ -6,11 +6,20 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
 import android.view.Menu;
-
+/**
+ * Esta clase representa el contenedor general de la aplicación
+ * @author aidiapp
+ *
+ */
 public class MainActivity extends Activity {
 public MapManager mapmngr;
+
 	@Override
+	/**
+	 * Cuando se inicia la activity inicializamos el mapmanager
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		this.mapmngr=new MapManager();

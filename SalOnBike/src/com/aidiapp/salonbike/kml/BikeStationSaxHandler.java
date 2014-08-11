@@ -7,7 +7,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import android.util.Log;
 
-public class NavigationSaxHandler extends DefaultHandler{ 
+public class BikeStationSaxHandler extends DefaultHandler{ 
 
 	 // =========================================================== 
 	 // Fields 
@@ -24,13 +24,13 @@ public class NavigationSaxHandler extends DefaultHandler{
 
 	 private StringBuffer buffer;
 
-	 private NavigationDataSet navigationDataSet = new NavigationDataSet(); 
+	 private BikeStationDataSet navigationDataSet = new BikeStationDataSet(); 
 
 	 // =========================================================== 
 	 // Getter & Setter 
 	 // =========================================================== 
 
-	 public NavigationDataSet getParsedData() {
+	 public BikeStationDataSet getParsedData() {
 	      navigationDataSet.getCurrentPlacemark().setCoordinates(buffer.toString().trim());
 	      return this.navigationDataSet; 
 	 } 
@@ -40,7 +40,7 @@ public class NavigationSaxHandler extends DefaultHandler{
 	 // =========================================================== 
 	 @Override 
 	 public void startDocument() throws SAXException { 
-	      this.navigationDataSet = new NavigationDataSet(); 
+	      this.navigationDataSet = new BikeStationDataSet(); 
 	      Log.d("SAXHANDLER", "Empieza el documento ");
 	 } 
 
@@ -58,7 +58,7 @@ public class NavigationSaxHandler extends DefaultHandler{
 	           this.in_kmltag = true;
 	      } else if (localName.equals("Placemark")) { 
 	           this.in_placemarktag = true; 
-	           navigationDataSet.setCurrentPlacemark(new Placemark());
+	           navigationDataSet.setCurrentPlacemark(new BikeStation());
 	           
 	      } else if (localName.equals("name")) { 
 	           this.in_nametag = true;
@@ -114,17 +114,17 @@ public class NavigationSaxHandler extends DefaultHandler{
 	public void characters(char ch[], int start, int length) { 
 		 
 	    if(this.in_nametag){ 
-	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new Placemark());
+	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new BikeStation());
 	        navigationDataSet.getCurrentPlacemark().setTitle(new String(ch, start, length));            
 	    } else 
 	    if(this.in_descriptiontag){ 
-	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new Placemark());
+	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new BikeStation());
 	        navigationDataSet.getCurrentPlacemark().setDescription(new String(ch, start, length));          
 	    } else
 	    if(this.in_coordinatestag){        
-	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new Placemark());
+	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new BikeStation());
 	        //navigationDataSet.getCurrentPlacemark().setCoordinates(new String(ch, start, length));
-	        navigationDataSet.getCurrentPlacemark().setPosition(Placemark.coordinatesToPosition(new String(ch,start,length)));
+	        navigationDataSet.getCurrentPlacemark().setPosition(BikeStation.coordinatesToPosition(new String(ch,start,length)));
 	        buffer.append(ch, start, length);
 	    }
 	} 

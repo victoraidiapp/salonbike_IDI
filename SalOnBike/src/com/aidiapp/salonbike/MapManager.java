@@ -22,9 +22,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.aidiapp.salonbike.kml.NavigationDataSet;
-import com.aidiapp.salonbike.kml.NavigationSaxHandler;
-import com.aidiapp.salonbike.kml.Placemark;
+import com.aidiapp.salonbike.kml.BikeStationDataSet;
+import com.aidiapp.salonbike.kml.BikeStationSaxHandler;
+import com.aidiapp.salonbike.kml.BikeStation;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
@@ -36,6 +36,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * Esta clase se encarga de visualizar el mapview y dibujar en e´l los intercambiadores
+ * @author aidiapp
+ *
+ */
 public class MapManager extends MapFragment implements OnMarkerClickListener {
 
 	@Override
@@ -44,53 +49,69 @@ public class MapManager extends MapFragment implements OnMarkerClickListener {
 		// TODO Auto-generated method stub
 		View r=super.onCreateView(inflater, container, savedInstanceState);
 		Log.d("MAPMANAGER","Ya hemos creado el mapa");
+		//Como listener de los clicks en los marcadres del mapa establezca el propio mapmanager
 		this.getMap().setOnMarkerClickListener(this);
-		this.goToYourLocation();
+		//Inicialziamos el mapa
+		this.init();
 		return r;
 	}
-public void goToYourLocation(){
+	
+	/**
+	 * Este método inicializa el mapa
+	 */
+public void init(){
 	final GoogleMap gm=this.getMap();
+	
 	gm.setOnMapLoadedCallback(new OnMapLoadedCallback(){
 
 		@Override
+		/**
+		 * Cuando el mapa ya está cargado realizamos una serie de operaciones
+		 */
 		public void onMapLoaded() {
 			// TODO Auto-generated method stub
 			Log.d("MAPMANAGER", "El mapa ya está cargado");
 			gm.setMyLocationEnabled(true);
-			//gm.animateCamera(CameraUpdateFactory.zoomTo(15));
+			
+			//Establecemos la localización de salamanca
 			LatLng sal=new LatLng(40.9705347,-5.6637995);
+			
+			//Movemos el mapa hasta esa localización
 			gm.animateCamera(CameraUpdateFactory.newLatLngZoom(sal, 12.5f));
-			//gm.animateCamera(CameraUpdateFactory.zoomTo(19));
+			
+			//CArgamos los intercambiadores
 			loadPoints();
 		}
 		
 	});
-	//MapsInitializer.initialize(getActivity());
-	//gm.animateCamera(CameraUpdateFactory.zoomBy(8f));
-	//gm.animateCamera(CameraUpdateFactory.zoomIn());
+
 	
 	
 }
+
+/**
+ * Este método dibuja los intercambiadores como marcadores en el mapa
+ */
 public void loadPoints(){
 	GoogleMap gm=this.getMap();
 	
 	AssetManager assetManager =this.getActivity().getAssets();
-	NavigationDataSet navigationDataSet = null;
+	BikeStationDataSet navigationDataSet = null;
 	try {
 		InputStream is=assetManager.open("intercambiadores.xml");
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		   SAXParser sp= spf.newSAXParser();
 		   XMLReader xr = sp.getXMLReader();
-		   NavigationSaxHandler navSax2Handler = new NavigationSaxHandler(); 
+		   BikeStationSaxHandler navSax2Handler = new BikeStationSaxHandler(); 
 	        xr.setContentHandler(navSax2Handler); 
 	        InputSource inStream = new InputSource(is);
 	        xr.parse(inStream);
 	        navigationDataSet=navSax2Handler.getParsedData();
-	        ArrayList<Placemark> puntos=navigationDataSet.getPlacemarks();
+	        ArrayList<BikeStation> puntos=navigationDataSet.getPlacemarks();
 	        Iterator i=puntos.iterator();
 	        while(i.hasNext()){
 	        	
-	        	Placemark punto=(Placemark) i.next();
+	        	BikeStation punto=(BikeStation) i.next();
 	        	/*
 	        	Log.d("MAPMANAGER","El punto es "+punto.getTitle());
 	        	String coord[]=punto.getCoordinates().split(",");
