@@ -2,6 +2,11 @@ package com.aidiapp.salonbike.kml;
 
 import com.google.android.gms.maps.model.LatLng;
 
+/**
+ * Esta clase representa el objeto bikestation
+ * @author aidiapp
+ *
+ */
 public class BikeStation {
 
 String title;

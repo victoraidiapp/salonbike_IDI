@@ -6,11 +6,16 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import android.util.Log;
-
+/**
+ * Esta clase sirve para manejar el XML leido con SAX y convertir los nodos XML en objetos de la colección 
+ * bikestationDataSet
+ * @author escueladecienciasinformaticas
+ *
+ */
 public class BikeStationSaxHandler extends DefaultHandler{ 
 
 	 // =========================================================== 
-	 // Fields 
+	 // Campos 
 	 // =========================================================== 
 
 	 private boolean in_kmltag = false; 
@@ -24,15 +29,15 @@ public class BikeStationSaxHandler extends DefaultHandler{
 
 	 private StringBuffer buffer;
 
-	 private BikeStationDataSet navigationDataSet = new BikeStationDataSet(); 
+	 private BikeStationDataSet bikestationDataSet = new BikeStationDataSet(); 
 
 	 // =========================================================== 
 	 // Getter & Setter 
 	 // =========================================================== 
 
 	 public BikeStationDataSet getParsedData() {
-	      navigationDataSet.getCurrentPlacemark().setCoordinates(buffer.toString().trim());
-	      return this.navigationDataSet; 
+	      bikestationDataSet.getCurrentPlacemark().setCoordinates(buffer.toString().trim());
+	      return this.bikestationDataSet; 
 	 } 
 
 	 // =========================================================== 
@@ -40,7 +45,7 @@ public class BikeStationSaxHandler extends DefaultHandler{
 	 // =========================================================== 
 	 @Override 
 	 public void startDocument() throws SAXException { 
-	      this.navigationDataSet = new BikeStationDataSet(); 
+	      this.bikestationDataSet = new BikeStationDataSet(); 
 	      Log.d("SAXHANDLER", "Empieza el documento ");
 	 } 
 
@@ -58,7 +63,7 @@ public class BikeStationSaxHandler extends DefaultHandler{
 	           this.in_kmltag = true;
 	      } else if (localName.equals("Placemark")) { 
 	           this.in_placemarktag = true; 
-	           navigationDataSet.setCurrentPlacemark(new BikeStation());
+	           bikestationDataSet.setCurrentPlacemark(new BikeStation());
 	           
 	      } else if (localName.equals("name")) { 
 	           this.in_nametag = true;
@@ -89,9 +94,7 @@ public class BikeStationSaxHandler extends DefaultHandler{
 	       } else if (localName.equals("Placemark")) { 
 	           this.in_placemarktag = false;
 
-	       if ("Route".equals(navigationDataSet.getCurrentPlacemark().getTitle())) 
-	               navigationDataSet.setRoutePlacemark(navigationDataSet.getCurrentPlacemark());
-	        else navigationDataSet.addCurrentPlacemark();
+	        bikestationDataSet.addCurrentPlacemark();
 
 	       } else if (localName.equals("name")) { 
 	           this.in_nametag = false;           
@@ -114,17 +117,17 @@ public class BikeStationSaxHandler extends DefaultHandler{
 	public void characters(char ch[], int start, int length) { 
 		 
 	    if(this.in_nametag){ 
-	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new BikeStation());
-	        navigationDataSet.getCurrentPlacemark().setTitle(new String(ch, start, length));            
+	        if (bikestationDataSet.getCurrentPlacemark()==null) bikestationDataSet.setCurrentPlacemark(new BikeStation());
+	        bikestationDataSet.getCurrentPlacemark().setTitle(new String(ch, start, length));            
 	    } else 
 	    if(this.in_descriptiontag){ 
-	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new BikeStation());
-	        navigationDataSet.getCurrentPlacemark().setDescription(new String(ch, start, length));          
+	        if (bikestationDataSet.getCurrentPlacemark()==null) bikestationDataSet.setCurrentPlacemark(new BikeStation());
+	        bikestationDataSet.getCurrentPlacemark().setDescription(new String(ch, start, length));          
 	    } else
 	    if(this.in_coordinatestag){        
-	        if (navigationDataSet.getCurrentPlacemark()==null) navigationDataSet.setCurrentPlacemark(new BikeStation());
+	        if (bikestationDataSet.getCurrentPlacemark()==null) bikestationDataSet.setCurrentPlacemark(new BikeStation());
 	        //navigationDataSet.getCurrentPlacemark().setCoordinates(new String(ch, start, length));
-	        navigationDataSet.getCurrentPlacemark().setPosition(BikeStation.coordinatesToPosition(new String(ch,start,length)));
+	        bikestationDataSet.getCurrentPlacemark().setPosition(BikeStation.coordinatesToPosition(new String(ch,start,length)));
 	        buffer.append(ch, start, length);
 	    }
 	} 

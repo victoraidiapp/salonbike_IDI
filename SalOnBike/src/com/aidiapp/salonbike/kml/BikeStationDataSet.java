@@ -2,12 +2,16 @@ package com.aidiapp.salonbike.kml;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
+/**
+ * Esta clase representa la colección de intercambiadores (bikestations)
+ * @author aidiapp
+ *
+ */
 public class BikeStationDataSet { 
 
 private ArrayList<BikeStation> placemarks = new ArrayList<BikeStation>();
 private BikeStation currentPlacemark;
-private BikeStation routePlacemark;
+
 
 public String toString() {
     String s= "";
@@ -38,12 +42,6 @@ public void setCurrentPlacemark(BikeStation currentPlacemark) {
     this.currentPlacemark = currentPlacemark;
 }
 
-public BikeStation getRoutePlacemark() {
-    return routePlacemark;
-}
 
-public void setRoutePlacemark(BikeStation routePlacemark) {
-    this.routePlacemark = routePlacemark;
-}
 
 }
