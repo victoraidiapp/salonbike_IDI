@@ -2,6 +2,8 @@ package com.aidiapp.salonbike.kml;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.util.Log;
+
 import com.google.android.gms.maps.model.LatLng;
 public class BikeLane {
 private String title,description,coordinates;
@@ -23,6 +25,7 @@ public String getTitle() {
 }
 public void setTitle(String title) {
 	this.title = title;
+	Log.d("BIKELANE","Queremos fijar el titulo "+title);
 }
 public String getDescription() {
 	return description;
@@ -49,8 +52,17 @@ public void addPunto(LatLng p){
 public String getCoordinates() {
 	return coordinates;
 }
-public void setCoordinates(String coordinates) {
-	this.coordinates = coordinates;
+public void setCoordinates(String coords) {
+	this.coordinates = coords;
+	String pts[]=coords.split(" ");
+	
+	for(int i=0;i<pts.length;i++){
+		Log.d("BIKELANE","Queremos recoger las coordenadas "+pts[i]);
+		String co[]=pts[i].split(",");
+		this.addPunto(new LatLng(Float.valueOf(co[1]),Float.valueOf(co[0])));
+	}
+	
+	
 }
 
 

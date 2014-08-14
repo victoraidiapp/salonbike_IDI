@@ -26,4 +26,7 @@ public void setCurrentBikeLane(BikeLane currentBikeLane) {
 	this.currentBikeLane = currentBikeLane;
 }
 
+public void addCurrentBikeLane(){
+	this.bikeLanesCollection.add(currentBikeLane);
+}
 }

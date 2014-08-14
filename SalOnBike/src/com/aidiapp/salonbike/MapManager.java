@@ -16,12 +16,16 @@ import org.xml.sax.XMLReader;
 import android.R;
 import android.app.Fragment;
 import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.aidiapp.salonbike.kml.BikeLane;
+import com.aidiapp.salonbike.kml.BikeLaneDataSet;
+import com.aidiapp.salonbike.kml.BikeLaneSaxHandler;
 import com.aidiapp.salonbike.kml.BikeStationDataSet;
 import com.aidiapp.salonbike.kml.BikeStationSaxHandler;
 import com.aidiapp.salonbike.kml.BikeStation;
@@ -35,6 +39,8 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 /**
  * Esta clase se encarga de visualizar el mapview y dibujar en e´l los intercambiadores
@@ -42,7 +48,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  *
  */
 public class MapManager extends MapFragment implements OnMarkerClickListener {
-
+private int colores[]={Color.BLACK,Color.BLUE,Color.CYAN,Color.DKGRAY,Color.GREEN,Color.LTGRAY,Color.MAGENTA,Color.RED,Color.WHITE,Color.YELLOW,Color.BLACK,Color.BLUE,Color.CYAN};
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -81,6 +87,9 @@ public void init(){
 			
 			//CArgamos los intercambiadores
 			loadPoints();
+			
+			//CArgamos los carriles
+			loadLanes();
 		}
 		
 	});
@@ -138,7 +147,51 @@ public void loadPoints(){
 	}
 	
 }
-
+public void loadLanes(){
+	GoogleMap gm=this.getMap();
+	AssetManager assetManager =this.getActivity().getAssets();
+	BikeLaneDataSet bikelanes=new BikeLaneDataSet();
+	
+	InputStream is;
+	try {
+		is = assetManager.open("carrilbici.xml");
+		SAXParserFactory spf = SAXParserFactory.newInstance();
+		   SAXParser sp= spf.newSAXParser();
+		   XMLReader xr = sp.getXMLReader();
+		   BikeLaneSaxHandler navSax2Handler = new BikeLaneSaxHandler(); 
+	        xr.setContentHandler(navSax2Handler); 
+	        InputSource inStream = new InputSource(is);
+	        xr.parse(inStream);
+	        bikelanes=navSax2Handler.getBikelaneDataset();
+	        Iterator it=bikelanes.getBikeLanesCollection().iterator();
+	        int i=0;
+	        //REcorremos los carriles guardados en la colección
+	        while(it.hasNext()){
+	        	BikeLane carril=(BikeLane) it.next();
+	        	
+	        	//Creamos las opciones de la linea
+	        	PolylineOptions l=new PolylineOptions();
+	        	//Añadimos a la linea todos los puntos del carril
+	        	l.addAll(carril.getPuntos());
+	        	
+	        	//Añadimos la linea al mapa
+	        	gm.addPolyline(l.color(colores[i]));
+	        	i++;
+	        	
+	        }
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (ParserConfigurationException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SAXException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+        
+}
 @Override
 public boolean onMarkerClick(Marker marker) {
 	// TODO Auto-generated method stub
